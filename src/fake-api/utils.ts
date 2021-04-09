@@ -15,18 +15,18 @@ export const populateLocalStorage = () => {
   const initialTodos = [
     {
       id: '1',
-      name: 'Todo Name',
-      description: 'Todo Description',
+      name: 'Watch Cat Videos',
+      description: 'Need to watch several cat videos on YouTube later today',
       status: 'Ready',
       urgent: true,
-      targetCompletionDate: '2023-01-12',
+      targetCompletionDate: '2023-04-09',
       completionDate: null,
       active: false
     },
     {
       id: '2',
-      name: 'Todo Form',
-      description: 'Make a reusable form for editing and adding items',
+      name: 'Study Microbiology',
+      description: 'Complete OnlineMedEd Microbiology Lessons',
       status: 'Done',
       urgent: false,
       targetCompletionDate: '2021-03-30',
@@ -35,14 +35,24 @@ export const populateLocalStorage = () => {
     },
     {
       id: '3',
-      name: 'Database',
-      description: 'Hook up a mini database to this app',
+      name: 'Coaching',
+      description: 'Sign up for OnlineMeded Coaching',
       status: 'Ready',
       urgent: true,
-      targetCompletionDate: '2021-04-07',
+      targetCompletionDate: '2021-04-15',
       completionDate: null,
       active: false
-    } 
+    },
+    {
+      id: '4',
+      name: 'Drink Coffee',
+      description: "It's always time to drink more coffee",
+      status: 'Ready',
+      urgent: true,
+      targetCompletionDate: '2021-04-09',
+      completionDate: null,
+      active: false
+    }  
   ]
   for (const t of initialTodos) {
     window.localStorage.setItem(t.id, JSON.stringify(t));
