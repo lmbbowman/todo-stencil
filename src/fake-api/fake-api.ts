@@ -1,0 +1,39 @@
+import { Todo } from '../components/todo-app/types'
+import { generateId, populateLocalStorage } from './utils'
+
+export class FakeTodoApi {
+
+  initialize() {
+    window.localStorage.clear();
+    populateLocalStorage();
+  }
+
+  create(todo) {
+    todo.id = generateId();
+    localStorage.setItem(todo.id, JSON.stringify(todo)); 
+  }
+
+  retrieveAll() {
+    let todos = Object.entries(localStorage).map(rawTodo => {
+      let todo: Todo = JSON.parse(rawTodo[1]);
+      return todo;
+    })
+  
+    return todos;
+  }
+
+  retrieveById(id) {
+    const rawTodo = localStorage.getItem(id);
+    console.log('raw todo', rawTodo)
+    let todo: Todo = JSON.parse(rawTodo);
+    return todo;
+  }
+
+  update(todo) {
+    localStorage.setItem(todo.id, JSON.stringify(todo));
+  }
+
+  delete(todo) {
+    localStorage.removeItem(todo.id); 
+  }
+}

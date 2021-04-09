@@ -1,0 +1,39 @@
+{
+  "name": "todoapp",
+  "private": true,
+  "version": "0.0.1",
+  "description": "To Do Application",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.js",
+  "es2015": "./dist/esm/index.mjs",
+  "es2017": "./dist/esm/index.mjs",
+  "types": "./dist/types/components.d.ts",
+  "unpkg": "./dist/TodoApp/TodoApp.js",
+  "collection:main": "./dist/collection/index.js",
+  "collection": "./dist/collection/collection-manifest.json",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "build.netlify": "npm run build cp src/_redirects www/_redirects",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "prettier-watch": "onchange '**/*.js' -- prettier --write {{changed}}"
+  },
+  "devDependencies": {
+    "@stencil/core": "2.5.2",
+    "@stencil/router": "^1.0.1",
+    "@types/jest": "^26.0.22",
+    "prettier": "^1.19.1",
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.2",
+    "typescript-tslint-plugin": "^0.5.5"
+  },
+  "license": "MIT",
+  "dependencies": {
+  }
+}
