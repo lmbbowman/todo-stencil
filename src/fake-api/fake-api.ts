@@ -19,6 +19,7 @@ export class FakeTodoApi {
   retrieveAll() {
     let todos = Object.entries(localStorage).map(rawTodo => {
       const todo: Todo = JSON.parse(rawTodo[1]);
+      
       return todo;
     })
   
@@ -28,6 +29,7 @@ export class FakeTodoApi {
   retrieveById(id) {
     const rawTodo = localStorage.getItem(id);
     const todo: Todo = JSON.parse(rawTodo);
+    
     return todo;
   }
 

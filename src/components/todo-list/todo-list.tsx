@@ -70,7 +70,7 @@ export class TodoList {
 
   private showTodoForm(index: number) {
     this.todos[index] = {...this.todos[index], active: true};
-    this.refresh = true
+    this.refresh = true;
   }
 
   private showAddTodoForm() {
@@ -196,6 +196,6 @@ export class TodoList {
         </table>
         <button class="add" onClick={() => this.showAddTodoForm()}>Add</button>
       </div>
-    )
+    );
   }
 }

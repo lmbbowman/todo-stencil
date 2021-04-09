@@ -5,9 +5,9 @@ export const generateId = () => {
   })
   
   const sortedIds: number[] = ids.sort((n1,n2) => n1 - n2);
-  const availableId: string = (sortedIds.pop() + 1).toString()
+  const availableId: string = (sortedIds.pop() + 1).toString();
   
-  return availableId
+  return availableId;
 }
 
 export const populateLocalStorage = () => {
@@ -35,7 +35,7 @@ export const populateLocalStorage = () => {
     {
       id: '3',
       name: 'Coaching',
-      description: 'Sign up for OnlineMeded Coaching',
+      description: 'Sign up for OnlineMedEd Coaching',
       status: 'Ready',
       urgent: true,
       targetCompletionDate: '2021-04-15',
@@ -52,9 +52,9 @@ export const populateLocalStorage = () => {
       completionDate: null,
       active: false
     }  
-  ]
+  ];
   for (const t of initialTodos) {
     window.localStorage.setItem(t.id, JSON.stringify(t));
 
-  }
+  };
 }
