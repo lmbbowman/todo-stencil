@@ -6,7 +6,6 @@ export const generateId = () => {
   
   const sortedIds: number[] = ids.sort((n1,n2) => n1 - n2);
   const availableId: string = (sortedIds.pop() + 1).toString()
-  console.log('availableId')
   
   return availableId
 }

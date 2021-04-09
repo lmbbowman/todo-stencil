@@ -35,14 +35,15 @@ export class TodoList {
   }
 
   private handleSubmit(todo: Todo) {
-    this.auditTodoForm(todo);
-    todo.active = false;
-    if (!todo.id) {
-      this.api.create(todo);
-    } else {
-      this.api.update(todo);
+    if (!this.auditTodoForm(todo)) {
+      todo.active = false;
+      if (!todo.id) {
+        this.api.create(todo);
+      } else {
+        this.api.update(todo);
+      }
+      this.refresh = true;
     }
-    this.refresh = true;
   }
   
   private handleDelete(todo: Todo) {
@@ -81,17 +82,16 @@ export class TodoList {
   private auditTodoForm(todo: Todo) {
     if (!todo.name) {
       alert('Please enter a task name.');
+      return true;
     }
     if (!todo.description) {
       alert("Please enter a task description.");
+      return true;
     }
-    if (!todo.status) {
-      alert("Please enter a task status.");
-    }
+    return false;
   }
 
   render() {
-    console.log('rendering')
     return (
       <div class="todo-list">
         <table id="todo-list-table" class="">
@@ -170,9 +170,9 @@ export class TodoList {
                       <input id="description" type="text" value={todo.description} onInput={(event) => this.handleTodoChange(event, index)} />
                     </td>
                     <td data-label="Status">
+                      {todo.status}
                       <select id="status" onInput={(event) => this.handleTodoChange(event, index)}>
-                        <option selected={todo === ''} disabled hidden>Choose here</option>
-                        <option value="Ready" selected={todo === 'Ready'}>Ready</option>
+                        <option value="Ready" selected={todo.status === 'Ready'}>Ready</option>
                         <option value="In Progress" selected={todo.status === 'In Progress'}>In Progress</option>
                         <option value="On Hold" selected={todo.status === 'On Hold'}>On Hold</option>
                         <option value="Done" selected={todo.status === 'Done'}>Done</option>

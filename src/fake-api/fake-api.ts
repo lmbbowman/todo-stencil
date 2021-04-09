@@ -10,6 +10,9 @@ export class FakeTodoApi {
 
   create(todo) {
     todo.id = generateId();
+    if (!todo.status) {
+      todo.status = 'Ready';
+    }
     localStorage.setItem(todo.id, JSON.stringify(todo)); 
   }
 
