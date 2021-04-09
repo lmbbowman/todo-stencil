@@ -5,10 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { MatchResults } from "@stencil/router";
 export namespace Components {
     interface TodoApp {
     }
     interface TodoDetail {
+        "match": MatchResults;
     }
     interface TodoList {
     }
@@ -42,6 +44,7 @@ declare namespace LocalJSX {
     interface TodoApp {
     }
     interface TodoDetail {
+        "match"?: MatchResults;
     }
     interface TodoList {
     }

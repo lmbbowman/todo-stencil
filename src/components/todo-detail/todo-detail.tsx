@@ -1,4 +1,4 @@
-import { Component, State, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { MatchResults } from '@stencil/router';
   shadow: true,
 })
 export class TodoDetail {
-  @State() match: MatchResults;
+  @Prop() match: MatchResults;
 
   render() {
     if (this.match && this.match.params.id) {
