@@ -170,7 +170,6 @@ export class TodoList {
                       <input id="description" type="text" value={todo.description} onInput={(event) => this.handleTodoChange(event, index)} />
                     </td>
                     <td data-label="Status">
-                      {todo.status}
                       <select id="status" onInput={(event) => this.handleTodoChange(event, index)}>
                         <option value="Ready" selected={todo.status === 'Ready'}>Ready</option>
                         <option value="In Progress" selected={todo.status === 'In Progress'}>In Progress</option>
